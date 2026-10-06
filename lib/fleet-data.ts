@@ -1,0 +1,290 @@
+export interface CarItem {
+  id: string;
+  name: string;
+  brand: string;
+  model: string;
+  category: "all" | "hatchback" | "sedan" | "suv" | "muv" | "electric" | "luxury";
+  categoryLabel: string;
+  transmission: "Automatic" | "Manual";
+  fuel: "Petrol" | "Diesel" | "Electric";
+  seats: number;
+  luggage: number;
+  mileage: string;
+  dailyRate: number;
+  originalDailyRate: number;
+  hourlyRate: number;
+  image: string;
+  tag?: string;
+  rating: number;
+  tripsCount: number;
+  features: string[];
+}
+
+export const FLEET_CARS: CarItem[] = [
+  {
+    id: "creta-at",
+    name: "Hyundai Creta SX(O)",
+    brand: "Hyundai",
+    model: "Creta 2024",
+    category: "suv",
+    categoryLabel: "Adventure SUV",
+    transmission: "Automatic",
+    fuel: "Diesel",
+    seats: 5,
+    luggage: 3,
+    mileage: "18.5 km/l",
+    dailyRate: 2499,
+    originalDailyRate: 3199,
+    hourlyRate: 189,
+    image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=900&q=80",
+    tag: "Most Popular",
+    rating: 4.9,
+    tripsCount: 1840,
+    features: ["Panoramic Sunroof", "Ventilated Seats", "Wireless Apple CarPlay", "Fastag Enabled"],
+  },
+  {
+    id: "honda-city-zx",
+    name: "Honda City ZX VTEC",
+    brand: "Honda",
+    model: "City 5th Gen",
+    category: "sedan",
+    categoryLabel: "Executive Sedan",
+    transmission: "Automatic",
+    fuel: "Petrol",
+    seats: 5,
+    luggage: 4,
+    mileage: "17.8 km/l",
+    dailyRate: 2199,
+    originalDailyRate: 2799,
+    hourlyRate: 169,
+    image: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=900&q=80",
+    tag: "Best Highway Cruiser",
+    rating: 4.9,
+    tripsCount: 1420,
+    features: ["LaneWatch Camera", "Leather Upholstery", "Huge 506L Boot", "Cruise Control"],
+  },
+  {
+    id: "thar-4x4",
+    name: "Mahindra Thar Hardtop 4x4",
+    brand: "Mahindra",
+    model: "Thar LX",
+    category: "suv",
+    categoryLabel: "Adventure SUV",
+    transmission: "Automatic",
+    fuel: "Diesel",
+    seats: 4,
+    luggage: 2,
+    mileage: "15.2 km/l",
+    dailyRate: 2899,
+    originalDailyRate: 3699,
+    hourlyRate: 219,
+    image: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=900&q=80",
+    tag: "Getaway Favorite",
+    rating: 4.8,
+    tripsCount: 1180,
+    features: ["4x4 Low-Range", "Touchscreen Nav", "All-Terrain Suspension", "Roll Cage"],
+  },
+  {
+    id: "tata-nexon-ev",
+    name: "Tata Nexon EV Long Range",
+    brand: "Tata",
+    model: "Nexon EV Empowered",
+    category: "electric",
+    categoryLabel: "Electric / EV",
+    transmission: "Automatic",
+    fuel: "Electric",
+    seats: 5,
+    luggage: 3,
+    mileage: "465 km range",
+    dailyRate: 2399,
+    originalDailyRate: 2999,
+    hourlyRate: 179,
+    image: "https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=900&q=80",
+    tag: "Eco Friendly",
+    rating: 4.9,
+    tripsCount: 960,
+    features: ["Fast Charging (10-80% in 45m)", "V2L Power Bank", "Zero Emissions", "Free Fast Charger Map"],
+  },
+  {
+    id: "swift-amt",
+    name: "Maruti Swift ZXi+",
+    brand: "Maruti Suzuki",
+    model: "Swift 2024",
+    category: "hatchback",
+    categoryLabel: "Compact Hatchback",
+    transmission: "Automatic",
+    fuel: "Petrol",
+    seats: 5,
+    luggage: 2,
+    mileage: "24.8 km/l",
+    dailyRate: 1499,
+    originalDailyRate: 1999,
+    hourlyRate: 119,
+    image: "https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&w=900&q=80",
+    tag: "Best City Mileage",
+    rating: 4.8,
+    tripsCount: 2450,
+    features: ["Easy City Parking", "SmartPlay Pro+ Audio", "6 Airbags Standard", "Great Fuel Efficiency"],
+  },
+  {
+    id: "innova-crysta",
+    name: "Toyota Innova Crysta ZX",
+    brand: "Toyota",
+    model: "Innova Crysta",
+    category: "muv",
+    categoryLabel: "7-Seater Family MUV",
+    transmission: "Automatic",
+    fuel: "Diesel",
+    seats: 7,
+    luggage: 5,
+    mileage: "14.9 km/l",
+    dailyRate: 3499,
+    originalDailyRate: 4399,
+    hourlyRate: 269,
+    image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=900&q=80",
+    tag: "Top Family Choice",
+    rating: 4.9,
+    tripsCount: 1670,
+    features: ["Captain Seats 2nd Row", "Rear AC Vents All Rows", "Supreme Highway Comfort", "Roof Ambient Lights"],
+  },
+  {
+    id: "bmw-3-gl",
+    name: "BMW 3 Series Gran Limousine",
+    brand: "BMW",
+    model: "330Li M Sport",
+    category: "luxury",
+    categoryLabel: "Luxury Executive",
+    transmission: "Automatic",
+    fuel: "Petrol",
+    seats: 5,
+    luggage: 4,
+    mileage: "15.3 km/l",
+    dailyRate: 6999,
+    originalDailyRate: 8999,
+    hourlyRate: 549,
+    image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=900&q=80",
+    tag: "Luxury Tier",
+    rating: 5.0,
+    tripsCount: 620,
+    features: ["Harman Kardon Sound", "Curved Panoramic Display", "Vernasca Leather", "Executive Legroom"],
+  },
+  {
+    id: "hyundai-i20",
+    name: "Hyundai i20 Asta (O)",
+    brand: "Hyundai",
+    model: "i20 IVT",
+    category: "hatchback",
+    categoryLabel: "Compact Hatchback",
+    transmission: "Automatic",
+    fuel: "Petrol",
+    seats: 5,
+    luggage: 3,
+    mileage: "20.1 km/l",
+    dailyRate: 1699,
+    originalDailyRate: 2199,
+    hourlyRate: 129,
+    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80",
+    tag: "Smooth Commute",
+    rating: 4.8,
+    tripsCount: 1530,
+    features: ["Bose 7-Speaker Audio", "Electric Sunroof", "Air Purifier Built-in", "Wireless Phone Charger"],
+  },
+  {
+    id: "xuv700-ax7",
+    name: "Mahindra XUV700 AX7L",
+    brand: "Mahindra",
+    model: "XUV700 AWD",
+    category: "muv",
+    categoryLabel: "7-Seater Family MUV",
+    transmission: "Automatic",
+    fuel: "Diesel",
+    seats: 7,
+    luggage: 4,
+    mileage: "16.5 km/l",
+    dailyRate: 3699,
+    originalDailyRate: 4599,
+    hourlyRate: 279,
+    image: "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=900&q=80",
+    tag: "High Tech Flagship",
+    rating: 4.9,
+    tripsCount: 1290,
+    features: ["ADAS Level 2 Tech", "Skyroof Panoramic Sunroof", "Sony 12-Speaker 3D Audio", "AWD Traction"],
+  },
+];
+
+export const SERVICE_HUBS = [
+  { id: "airport-t2", name: "Mumbai Chhatrapati Shivaji Airport (T2)", tag: "Express Valet" },
+  { id: "airport-t1", name: "Mumbai Domestic Airport (T1)", tag: "Express Valet" },
+  { id: "bkc", name: "Bandra Kurla Complex (BKC)", tag: "Business Hub" },
+  { id: "andheri-w", name: "Andheri West Hub", tag: "24/7 Pickup" },
+  { id: "thane", name: "Thane West (Viviana Hub)", tag: "24/7 Pickup" },
+  { id: "navi-mumbai", name: "Navi Mumbai (Vashi & Kharghar)", tag: "Express Pickup" },
+  { id: "pune", name: "Pune Central & Airport Hub", tag: "Intercity Center" },
+  { id: "doorstep", name: "Direct Doorstep Delivery (Anywhere in MMR)", tag: "Home / Office Handover" },
+];
+
+export const TESTIMONIALS = [
+  {
+    id: "1",
+    name: "Vikramaditya Roy",
+    role: "Product Director, Mumbai",
+    car: "Mahindra Thar 4x4",
+    trip: "Mumbai to Pawna & Mahabaleshwar",
+    rating: 5,
+    text: "Renting self-drive cars in India usually comes with anxiety over security deposit refunds. MU Drives changed that completely. Zero deposit, clean car delivered right at my apartment in Powai, and the Thar was in showroom condition.",
+    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
+  },
+  {
+    id: "2",
+    name: "Dr. Ananya Sharma",
+    role: "Consultant, Navi Mumbai",
+    car: "Honda City ZX",
+    trip: "Weekend Getaway to Alibaug & Kashid",
+    rating: 5,
+    text: "The paperless KYC took less than 4 minutes on my phone. The digital inspection checklist gave total transparency before taking the keys. Car smelled spotless and the unlimited KM option let us explore freely.",
+    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80",
+  },
+  {
+    id: "3",
+    name: "Rohan & Priyamvada",
+    role: "Designers, Bandra",
+    car: "Tata Nexon EV Long Range",
+    trip: "Mumbai to Lonavala Road Trip",
+    rating: 5,
+    text: "Took the Nexon EV for a quiet scenic drive to Khandala. MU Drives pre-charged it to 100% and gave us an active RFID charging tag. Glass-smooth experience from booking to return.",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+  },
+];
+
+export const FAQS = [
+  {
+    question: "How does the Zero Security Deposit policy work?",
+    answer:
+      "Unlike traditional rental companies that block ₹5,000 to ₹20,000 on your credit card for weeks, MU Drives uses instant digital KYC verification. Once your driving license and identity are verified, you pay only the trip rental fee with zero deposit held.",
+  },
+  {
+    question: "What documents are required to book a car with MU Drives?",
+    answer:
+      "You only need two documents: a valid Indian or International Driving License (minimum 1 year old) and a valid Government ID proof (Aadhaar Card, Passport, or Voter ID). Verification is 100% paperless and takes under 5 minutes.",
+  },
+  {
+    question: "How does Doorstep Delivery and Airport Pickup work?",
+    answer:
+      "Select 'Doorstep Delivery' during booking, input your address or terminal details (e.g. Mumbai Airport Terminal 2), and our concierge arrives with the sanitized vehicle 15 minutes before your scheduled departure time.",
+  },
+  {
+    question: "Is fuel included in the rental pricing?",
+    answer:
+      "We provide flexible plans! You can choose 'Without Fuel' (the car is handed over with a full tank and you return it with the same fuel level) or select our 'With Fuel' package during checkout which includes fuel estimates.",
+  },
+  {
+    question: "Can I drive outside Maharashtra (e.g., to Goa, Gujarat, or Karnataka)?",
+    answer:
+      "Yes, absolutely! All MU Drives cars carry valid all-India commercial permits. You can drive freely across state borders. Standard state entry road taxes or tolls are easily paid via the car's pre-installed Fastag.",
+  },
+  {
+    question: "What happens in case of an on-road emergency or mechanical breakdown?",
+    answer:
+      "Every MU Drives booking includes 24/7 Pan-India Roadside Assistance. In case of a flat tire, battery discharge, or mechanical issue, call our direct toll-free hotline. We dispatch immediate support or arrange a vehicle swap at zero additional cost.",
+  },
+];

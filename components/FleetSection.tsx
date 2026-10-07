@@ -90,7 +90,7 @@ export function FleetSection({
           </div>
 
           {/* Quick Search & Transmission Filter Bar */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3">
             <div className="relative">
               <Search className="w-4 h-4 text-[#5B6676] absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
@@ -98,14 +98,14 @@ export function FleetSection({
                 placeholder="Search Creta, City, Thar..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full sm:w-56 pl-10 pr-4 py-2 rounded-xl bg-white/80 border border-slate-200 text-xs sm:text-sm text-[#1A1F2B] outline-none focus:border-[#1E6FD9] focus:ring-2 focus:ring-[#1E6FD9]/20 transition-all shadow-2xs"
+                className="w-full sm:w-56 pl-10 pr-4 py-2.5 sm:py-2 rounded-xl bg-white/80 border border-slate-200 text-base sm:text-sm text-[#1A1F2B] outline-none focus:border-[#1E6FD9] focus:ring-2 focus:ring-[#1E6FD9]/20 transition-all shadow-2xs"
               />
             </div>
 
             <select
               value={transmissionFilter}
               onChange={(e) => setTransmissionFilter(e.target.value)}
-              className="py-2 px-3 rounded-xl bg-white/80 border border-slate-200 text-xs sm:text-sm font-medium text-[#1A1F2B] outline-none focus:border-[#1E6FD9] shadow-2xs cursor-pointer"
+              className="py-2.5 sm:py-2 px-3 rounded-xl bg-white/80 border border-slate-200 text-base sm:text-sm font-medium text-[#1A1F2B] outline-none focus:border-[#1E6FD9] shadow-2xs cursor-pointer"
             >
               <option value="all">All Transmissions</option>
               <option value="automatic">Automatic Only</option>
@@ -114,13 +114,13 @@ export function FleetSection({
           </div>
         </div>
 
-        {/* Category Pills Navigation */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none">
+        {/* Category Pills Navigation (Edge-to-Edge swipeable on mobile) */}
+        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-3 mb-6 sm:mb-8 -mx-4 px-4 sm:mx-0 sm:px-0">
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setSelectedCategory(cat.id)}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap cursor-pointer ${
+              className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap cursor-pointer shrink-0 ${
                 selectedCategory === cat.id
                   ? "bg-[#0B1F3A] text-white shadow-sm"
                   : "glass-pill text-[#5B6676] hover:text-[#0B1F3A] hover:bg-white/90 border border-slate-200/60"
@@ -211,28 +211,28 @@ export function FleetSection({
                     </div>
 
                     {/* Key Specs Row */}
-                    <div className="grid grid-cols-4 gap-1.5 py-3 border-y border-slate-200/70 my-3 text-center">
-                      <div className="flex flex-col items-center">
-                        <Users className="w-3.5 h-3.5 text-[#5B6676] mb-1" />
-                        <span className="text-[11px] font-semibold text-[#1A1F2B]">
+                    <div className="grid grid-cols-4 gap-1 sm:gap-1.5 py-3 border-y border-slate-200/70 my-3 text-center">
+                      <div className="flex flex-col items-center min-w-0">
+                        <Users className="w-3.5 h-3.5 text-[#5B6676] mb-1 shrink-0" />
+                        <span className="text-[10px] sm:text-[11px] font-semibold text-[#1A1F2B] truncate w-full">
                           {car.seats} Seats
                         </span>
                       </div>
-                      <div className="flex flex-col items-center">
-                        <SlidersHorizontal className="w-3.5 h-3.5 text-[#5B6676] mb-1" />
-                        <span className="text-[11px] font-semibold text-[#1A1F2B]">
+                      <div className="flex flex-col items-center min-w-0">
+                        <SlidersHorizontal className="w-3.5 h-3.5 text-[#5B6676] mb-1 shrink-0" />
+                        <span className="text-[10px] sm:text-[11px] font-semibold text-[#1A1F2B] truncate w-full" title={car.transmission}>
                           {car.transmission}
                         </span>
                       </div>
-                      <div className="flex flex-col items-center">
-                        <Fuel className="w-3.5 h-3.5 text-[#5B6676] mb-1" />
-                        <span className="text-[11px] font-semibold text-[#1A1F2B]">
+                      <div className="flex flex-col items-center min-w-0">
+                        <Fuel className="w-3.5 h-3.5 text-[#5B6676] mb-1 shrink-0" />
+                        <span className="text-[10px] sm:text-[11px] font-semibold text-[#1A1F2B] truncate w-full">
                           {car.fuel}
                         </span>
                       </div>
-                      <div className="flex flex-col items-center">
-                        <Gauge className="w-3.5 h-3.5 text-[#5B6676] mb-1" />
-                        <span className="text-[11px] font-semibold text-[#1A1F2B]">
+                      <div className="flex flex-col items-center min-w-0">
+                        <Gauge className="w-3.5 h-3.5 text-[#5B6676] mb-1 shrink-0" />
+                        <span className="text-[10px] sm:text-[11px] font-semibold text-[#1A1F2B] truncate w-full">
                           {car.mileage}
                         </span>
                       </div>
@@ -252,14 +252,14 @@ export function FleetSection({
                   </div>
 
                   {/* Pricing & CTA Section */}
-                  <div className="pt-3 border-t border-slate-200/70 flex items-center justify-between gap-3">
-                    <div>
-                      <div className="flex items-baseline gap-1.5">
-                        <span className="text-xl sm:text-2xl font-black text-[#0B1F3A] tracking-tight">
+                  <div className="pt-3 border-t border-slate-200/70 flex items-center justify-between gap-2 sm:gap-3">
+                    <div className="min-w-0">
+                      <div className="flex items-baseline gap-1">
+                        <span className="text-lg sm:text-2xl font-black text-[#0B1F3A] tracking-tight">
                           ₹{car.dailyRate.toLocaleString("en-IN")}
                         </span>
-                        <span className="text-[11px] text-[#5B6676] font-medium">
-                          / day
+                        <span className="text-[10px] sm:text-[11px] text-[#5B6676] font-medium">
+                          /day
                         </span>
                       </div>
                       <div className="flex items-center gap-1.5 text-[10px] text-[#5B6676]">
@@ -273,18 +273,19 @@ export function FleetSection({
                     </div>
 
                     {/* CTA Buttons */}
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
                       <button
                         onClick={() => setSelectedCarDetails(car)}
-                        className="p-2.5 rounded-xl bg-white/90 border border-slate-200/90 text-[#0B1F3A] hover:text-[#1E6FD9] hover:bg-white transition-all shadow-2xs cursor-pointer"
+                        className="p-2 sm:p-2.5 rounded-xl bg-white/90 border border-slate-200/90 text-[#0B1F3A] hover:text-[#1E6FD9] hover:bg-white transition-all shadow-2xs cursor-pointer"
                         title="View Car Specifications"
+                        aria-label="View Car Specifications"
                       >
                         <Info className="w-4 h-4" />
                       </button>
 
                       <button
                         onClick={() => onSelectCarForBooking(car)}
-                        className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#F5A623] hover:bg-[#E09415] text-[#0B1F3A] font-bold text-xs shadow-md shadow-[#F5A623]/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+                        className="inline-flex items-center gap-1 sm:gap-1.5 px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-[#F5A623] hover:bg-[#E09415] text-[#0B1F3A] font-bold text-xs shadow-md shadow-[#F5A623]/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
                       >
                         <span>Book Now</span>
                         <ArrowRight className="w-3.5 h-3.5" />
@@ -299,8 +300,8 @@ export function FleetSection({
 
         {/* Detailed Car Info Modal */}
         {selectedCarDetails && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-md animate-in fade-in duration-200">
-            <div className="glass-panel max-w-lg w-full rounded-3xl p-6 sm:p-7 border border-white/90 shadow-2xl relative">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/50 backdrop-blur-md animate-in fade-in duration-200 overflow-y-auto">
+            <div className="glass-panel max-w-lg w-full rounded-3xl p-5 sm:p-7 border border-white/90 shadow-2xl relative my-auto max-h-[90vh] overflow-y-auto">
               <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 mb-4">
                 <div>
                   <span className="text-xs font-bold text-[#1E6FD9]">
@@ -312,7 +313,8 @@ export function FleetSection({
                 </div>
                 <button
                   onClick={() => setSelectedCarDetails(null)}
-                  className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-[#5B6676] hover:text-[#0B1F3A] cursor-pointer"
+                  className="w-9 h-9 sm:w-8 sm:h-8 min-h-[36px] min-w-[36px] rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-[#5B6676] hover:text-[#0B1F3A] transition-colors cursor-pointer"
+                  aria-label="Close details"
                 >
                   ✕
                 </button>
@@ -324,6 +326,7 @@ export function FleetSection({
                     src={selectedCarDetails.image}
                     alt={selectedCarDetails.name}
                     fill
+                    sizes="(max-width: 640px) 100vw, 512px"
                     className="object-cover"
                   />
                 </div>
@@ -344,7 +347,7 @@ export function FleetSection({
                   <div className="p-2.5 rounded-xl bg-white/70 border border-slate-200/60">
                     <span className="text-[#5B6676] block mb-0.5">Seating & Boot:</span>
                     <strong className="text-[#0B1F3A]">
-                      {selectedCarDetails.seats} Passengers • {selectedCarDetails.luggage} Suitcases
+                      {selectedCarDetails.seats} Passengers • {selectedCarDetails.luggage} Bags
                     </strong>
                   </div>
                   <div className="p-2.5 rounded-xl bg-white/70 border border-slate-200/60">
@@ -359,17 +362,17 @@ export function FleetSection({
                   <h5 className="text-xs font-bold text-[#0B1F3A] mb-2 uppercase tracking-wider">
                     Included Vehicle Features
                   </h5>
-                  <div className="grid grid-cols-2 gap-2 text-xs text-[#1A1F2B]">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#1A1F2B]">
                     {selectedCarDetails.features.map((item, idx) => (
                       <div key={idx} className="flex items-center gap-1.5">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#22A06B]" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#22A06B] shrink-0" />
                         <span>{item}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="pt-3 border-t border-slate-200/70 flex items-center justify-between">
+                <div className="pt-3 border-t border-slate-200/70 flex items-center justify-between gap-3">
                   <div>
                     <span className="text-xs text-[#5B6676] block">Daily Rate</span>
                     <span className="text-xl font-black text-[#0B1F3A]">
@@ -382,7 +385,7 @@ export function FleetSection({
                       setSelectedCarDetails(null);
                       onSelectCarForBooking(car);
                     }}
-                    className="px-6 py-3 rounded-xl bg-[#F5A623] hover:bg-[#E09415] text-[#0B1F3A] font-bold text-sm shadow-md cursor-pointer flex items-center gap-2"
+                    className="px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-[#F5A623] hover:bg-[#E09415] text-[#0B1F3A] font-bold text-sm shadow-md cursor-pointer flex items-center gap-2"
                   >
                     <span>Proceed to Book</span>
                     <ArrowRight className="w-4 h-4" />

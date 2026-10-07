@@ -149,15 +149,15 @@ export function RentalCalculator({ onReserveWithEstimate }: RentalCalculatorProp
         </div>
 
         {/* Calculator Outer Box with Glassmorphism */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
           {/* Controls Column (7 Cols) */}
-          <div className="lg:col-span-7 glass-panel rounded-3xl p-6 sm:p-8 border border-white/80 shadow-[0_12px_36px_rgba(11,31,58,0.06)] space-y-7">
+          <div className="lg:col-span-7 glass-panel rounded-3xl p-4 sm:p-6 lg:p-8 border border-white/80 shadow-[0_12px_36px_rgba(11,31,58,0.06)] space-y-6 sm:space-y-7">
             {/* 1. Car Category */}
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-[#5B6676] mb-3">
+              <label className="block text-xs font-bold uppercase tracking-wider text-[#5B6676] mb-2.5 sm:mb-3">
                 1. Select Vehicle Segment
               </label>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-2.5">
                 {[
                   { id: "hatchback", label: "Hatchback", price: "₹1,499/d" },
                   { id: "sedan", label: "Sedan", price: "₹2,199/d" },
@@ -170,13 +170,13 @@ export function RentalCalculator({ onReserveWithEstimate }: RentalCalculatorProp
                     key={tier.id}
                     type="button"
                     onClick={() => setSelectedCategory(tier.id)}
-                    className={`p-3 rounded-2xl text-left transition-all border cursor-pointer ${
+                    className={`p-2.5 sm:p-3 rounded-2xl text-left transition-all border cursor-pointer ${
                       selectedCategory === tier.id
                         ? "bg-[#0B1F3A] text-white border-[#0B1F3A] shadow-md shadow-[#0B1F3A]/20"
                         : "bg-white/80 text-[#1A1F2B] border-slate-200/80 hover:bg-white hover:border-[#1E6FD9]/40"
                     }`}
                   >
-                    <span className="block text-xs font-bold">{tier.label}</span>
+                    <span className="block text-xs font-bold truncate">{tier.label}</span>
                     <span
                       className={`text-[11px] block mt-0.5 ${
                         selectedCategory === tier.id ? "text-[#F5A623]" : "text-[#5B6676]"
@@ -191,19 +191,19 @@ export function RentalCalculator({ onReserveWithEstimate }: RentalCalculatorProp
 
             {/* 2. Duration Selector */}
             <div>
-              <div className="flex items-center justify-between mb-3">
+              <div className="flex flex-wrap items-center justify-between gap-1 mb-2.5 sm:mb-3">
                 <label className="text-xs font-bold uppercase tracking-wider text-[#5B6676]">
                   2. Rental Duration ({days} {days === 1 ? "Day" : "Days"})
                 </label>
                 {calculations.discountRate > 0 && (
-                  <span className="text-[11px] font-bold text-[#22A06B] bg-[#22A06B]/10 px-2 py-0.5 rounded-full">
+                  <span className="text-[10px] sm:text-[11px] font-bold text-[#22A06B] bg-[#22A06B]/10 px-2 py-0.5 rounded-full">
                     {(calculations.discountRate * 100).toFixed(0)}% Duration Discount Applied
                   </span>
                 )}
               </div>
 
-              {/* Quick Duration Buttons */}
-              <div className="grid grid-cols-4 gap-2 mb-4">
+              {/* Quick Duration Buttons (2 cols on mobile, 4 cols on desktop) */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
                 {[
                   { label: "1 Day", val: 1 },
                   { label: "3 Days (Weekend)", val: 3 },
@@ -377,41 +377,41 @@ export function RentalCalculator({ onReserveWithEstimate }: RentalCalculatorProp
           </div>
 
           {/* Fare Summary Receipt Column (5 Cols) with Deep Glassmorphism */}
-          <div className="lg:col-span-5 glass-panel rounded-3xl p-6 sm:p-7 border border-white/90 shadow-xl relative overflow-hidden backdrop-blur-2xl">
+          <div className="lg:col-span-5 glass-panel rounded-3xl p-4 sm:p-7 border border-white/90 shadow-xl relative overflow-hidden backdrop-blur-2xl">
             {/* Top Navy accent stripe */}
             <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#0B1F3A]" />
 
             <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-200/70">
-              <div>
+              <div className="min-w-0 pr-2">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-[#1E6FD9]">
                   Instant Transparent Quotation
                 </span>
-                <h3 className="text-lg font-extrabold text-[#0B1F3A]">
+                <h3 className="text-base sm:text-lg font-extrabold text-[#0B1F3A] truncate">
                   {categoryTiers.label}
                 </h3>
-                <p className="text-xs text-[#5B6676]">{categoryTiers.sub}</p>
+                <p className="text-xs text-[#5B6676] truncate">{categoryTiers.sub}</p>
               </div>
-              <span className="w-10 h-10 rounded-2xl bg-white border border-slate-200/80 flex items-center justify-center text-[#F5A623] shadow-xs">
+              <span className="w-10 h-10 rounded-2xl bg-white border border-slate-200/80 flex items-center justify-center text-[#F5A623] shadow-xs shrink-0">
                 <Calculator className="w-5 h-5" />
               </span>
             </div>
 
             {/* Line items list */}
-            <div className="space-y-3 text-xs py-2">
+            <div className="space-y-2.5 sm:space-y-3 text-xs py-2">
               <div className="flex justify-between items-center text-[#1A1F2B]">
-                <span>
+                <span className="pr-2">
                   Base Daily Rate (₹{calculations.dailyBase.toLocaleString("en-IN")} × {days}{" "}
                   {days === 1 ? "day" : "days"})
                 </span>
-                <span className="font-bold">
+                <span className="font-bold shrink-0">
                   ₹{calculations.rawTotal.toLocaleString("en-IN")}
                 </span>
               </div>
 
               {calculations.discountAmount > 0 && (
                 <div className="flex justify-between items-center text-[#22A06B]">
-                  <span>Duration Discount ({(calculations.discountRate * 100).toFixed(0)}%)</span>
-                  <span className="font-bold">
+                  <span className="pr-2">Duration Discount ({(calculations.discountRate * 100).toFixed(0)}%)</span>
+                  <span className="font-bold shrink-0">
                     -₹{calculations.discountAmount.toLocaleString("en-IN")}
                   </span>
                 </div>
@@ -419,8 +419,8 @@ export function RentalCalculator({ onReserveWithEstimate }: RentalCalculatorProp
 
               {calculations.kmSurcharge > 0 && (
                 <div className="flex justify-between items-center text-[#1A1F2B]">
-                  <span>Unlimited KMs Package</span>
-                  <span className="font-bold">
+                  <span className="pr-2">Unlimited KMs Package</span>
+                  <span className="font-bold shrink-0">
                     +₹{calculations.kmSurcharge.toLocaleString("en-IN")}
                   </span>
                 </div>
@@ -428,43 +428,43 @@ export function RentalCalculator({ onReserveWithEstimate }: RentalCalculatorProp
 
               {calculations.deliveryFee > 0 ? (
                 <div className="flex justify-between items-center text-[#1A1F2B]">
-                  <span>Doorstep Handover Fee</span>
-                  <span className="font-bold">+₹{calculations.deliveryFee}</span>
+                  <span className="pr-2">Doorstep Handover Fee</span>
+                  <span className="font-bold shrink-0">+₹{calculations.deliveryFee}</span>
                 </div>
               ) : (
                 <div className="flex justify-between items-center text-[#22A06B]">
-                  <span>Doorstep Delivery</span>
-                  <span className="font-bold">Complimentary</span>
+                  <span className="pr-2">Doorstep Delivery</span>
+                  <span className="font-bold shrink-0">Complimentary</span>
                 </div>
               )}
 
               <div className="flex justify-between items-center text-[#5B6676]">
-                <span className="flex items-center gap-1">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#22A06B]" />
+                <span className="flex items-center gap-1 pr-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#22A06B] shrink-0" />
                   Comprehensive Insurance & RSA
                 </span>
-                <span className="text-[#22A06B] font-semibold">Included (₹0)</span>
+                <span className="text-[#22A06B] font-semibold shrink-0">Included (₹0)</span>
               </div>
 
               <div className="flex justify-between items-center text-[#5B6676]">
-                <span className="flex items-center gap-1">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#22A06B]" />
+                <span className="flex items-center gap-1 pr-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#22A06B] shrink-0" />
                   Fastag Toll Transponder
                 </span>
-                <span className="text-[#22A06B] font-semibold">Pre-Activated</span>
+                <span className="text-[#22A06B] font-semibold shrink-0">Pre-Activated</span>
               </div>
 
               <div className="flex justify-between items-center py-2 px-3 rounded-xl bg-[#22A06B]/10 border border-[#22A06B]/20 text-[#22A06B]">
-                <span className="font-bold flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4" />
+                <span className="font-bold flex items-center gap-1.5 pr-2 text-[11px] sm:text-xs">
+                  <ShieldCheck className="w-4 h-4 shrink-0" />
                   Refundable Security Deposit
                 </span>
-                <span className="font-black text-sm">₹0 (Zero Deposit)</span>
+                <span className="font-black text-xs sm:text-sm shrink-0">₹0 (Zero Deposit)</span>
               </div>
             </div>
 
             {/* Total Section */}
-            <div className="mt-5 pt-4 border-t border-slate-200/80">
+            <div className="mt-4 sm:mt-5 pt-4 border-t border-slate-200/80">
               <div className="flex items-baseline justify-between mb-4">
                 <div>
                   <span className="text-xs font-semibold text-[#5B6676] block">
@@ -473,7 +473,7 @@ export function RentalCalculator({ onReserveWithEstimate }: RentalCalculatorProp
                   <span className="text-[11px] text-[#5B6676]">All taxes included</span>
                 </div>
                 <div className="text-right">
-                  <span className="text-3xl font-black text-[#0B1F3A] tracking-tight">
+                  <span className="text-2xl sm:text-3xl font-black text-[#0B1F3A] tracking-tight">
                     ₹{calculations.grandTotal.toLocaleString("en-IN")}
                   </span>
                   <span className="block text-[11px] text-[#5B6676]">

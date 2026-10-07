@@ -73,63 +73,59 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
             ))}
           </nav>
 
-          {/* Quick Actions */}
-          <div className="hidden sm:flex items-center gap-4">
+          {/* Actions & Mobile Toggle */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Phone Call (Tablet & Desktop) */}
             <a
               href="tel:+919820068374"
-              className="flex items-center gap-2 px-3 py-1.5 rounded-full glass-pill text-xs font-semibold text-[#0B1F3A] hover:bg-white/90 transition-all border border-slate-200/60"
+              className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full glass-pill text-xs font-semibold text-[#0B1F3A] hover:bg-white/90 transition-all border border-slate-200/60"
             >
               <PhoneCall className="w-3.5 h-3.5 text-[#1E6FD9]" />
               <span>+91 98200 68374</span>
               <span className="inline-block w-2 h-2 rounded-full bg-[#22A06B] animate-pulse" />
             </a>
 
+            {/* Book Now Button */}
             <button
               onClick={onOpenBooking}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#F5A623] hover:bg-[#E09415] text-[#0B1F3A] font-semibold text-sm shadow-[0_4px_14px_rgba(245,166,35,0.35)] hover:shadow-[0_6px_20px_rgba(245,166,35,0.45)] transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+              className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2.5 rounded-xl bg-[#F5A623] hover:bg-[#E09415] text-[#0B1F3A] font-bold text-xs sm:text-sm shadow-[0_4px_14px_rgba(245,166,35,0.35)] hover:shadow-[0_6px_20px_rgba(245,166,35,0.45)] transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer min-h-[44px]"
             >
               <span>Book Now</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </button>
-          </div>
 
-          {/* Mobile Menu Button */}
-          <div className="flex sm:hidden items-center gap-2">
-            <button
-              onClick={onOpenBooking}
-              className="px-3 py-1.5 rounded-lg bg-[#F5A623] text-[#0B1F3A] font-semibold text-xs shadow-sm cursor-pointer"
-            >
-              Book Now
-            </button>
+            {/* Mobile / Tablet Menu Button (Visible on screens below lg) */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg bg-white/80 text-[#0B1F3A] hover:bg-white transition-colors border border-slate-200"
+              className="flex lg:hidden p-2.5 rounded-xl bg-white/80 hover:bg-white text-[#0B1F3A] transition-colors border border-slate-200 shadow-2xs cursor-pointer items-center justify-center min-h-[44px] min-w-[44px]"
               aria-label="Toggle navigation menu"
+              aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Dropdown Menu with Glassmorphism */}
+        {/* Mobile & Tablet Dropdown Menu with Glassmorphism */}
         {mobileMenuOpen && (
-          <div className="lg:hidden mt-3 p-4 rounded-2xl glass-panel border border-white/80 shadow-xl space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
-            <nav className="flex flex-col space-y-2">
+          <div className="lg:hidden mt-3 p-4 sm:p-5 rounded-2xl glass-panel border border-white/80 shadow-2xl space-y-3 animate-in fade-in slide-in-from-top-2 duration-200 max-h-[calc(100vh-80px)] overflow-y-auto">
+            <nav className="flex flex-col space-y-1">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="px-3 py-2 rounded-lg text-sm font-medium text-[#1A1F2B] hover:bg-white/80 hover:text-[#1E6FD9] transition-colors"
+                  className="px-3 py-2.5 rounded-xl text-sm font-semibold text-[#1A1F2B] hover:bg-white/90 hover:text-[#1E6FD9] active:bg-[#1E6FD9]/10 transition-colors flex items-center justify-between"
                 >
-                  {link.label}
+                  <span>{link.label}</span>
+                  <span className="text-slate-300">›</span>
                 </a>
               ))}
             </nav>
-            <div className="pt-2 border-t border-slate-200/60 flex flex-col gap-2.5">
+            <div className="pt-3 border-t border-slate-200/60 flex flex-col gap-2.5">
               <a
                 href="tel:+919820068374"
-                className="flex items-center justify-center gap-2 py-2 rounded-xl bg-white/80 text-xs font-semibold text-[#0B1F3A]"
+                className="flex items-center justify-center gap-2 py-3 rounded-xl bg-white/90 text-xs font-semibold text-[#0B1F3A] border border-slate-200/80 shadow-xs"
               >
                 <PhoneCall className="w-3.5 h-3.5 text-[#1E6FD9]" />
                 <span>24/7 Helpline: +91 98200 68374</span>
@@ -139,7 +135,7 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
                   setMobileMenuOpen(false);
                   onOpenBooking();
                 }}
-                className="w-full py-2.5 rounded-xl bg-[#F5A623] text-[#0B1F3A] font-semibold text-sm shadow-md flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full py-3 rounded-xl bg-[#F5A623] hover:bg-[#E09415] text-[#0B1F3A] font-extrabold text-sm shadow-md flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Book a Car Now</span>
                 <ArrowRight className="w-4 h-4" />

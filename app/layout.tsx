@@ -9,6 +9,12 @@ const inter = Inter({
   display: "swap",
 });
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export const metadata: Metadata = {
   title: "MU Drives | Premium Self-Drive Car Rentals",
   description:
@@ -30,7 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={cn("h-full", "antialiased", inter.variable)}>
-      <body className="min-h-full flex flex-col font-sans bg-[#F7F9FC] text-[#1A1F2B] selection:bg-[#F5A623]/30 selection:text-[#0B1F3A]">
+      <body className="min-h-full w-full overflow-x-hidden flex flex-col font-sans bg-[#F7F9FC] text-[#1A1F2B] selection:bg-[#F5A623]/30 selection:text-[#0B1F3A]">
         {children}
       </body>
     </html>

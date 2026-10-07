@@ -15,6 +15,7 @@ import { CallToAction } from "@/components/CallToAction";
 import { Footer } from "@/components/Footer";
 import { BookingModal } from "@/components/BookingModal";
 import { CarItem } from "@/lib/fleet-data";
+import { PhoneCall, ArrowRight } from "lucide-react";
 
 export default function Home() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
@@ -108,6 +109,24 @@ export default function Home() {
 
       {/* Comprehensive Footer */}
       <Footer />
+
+      {/* Mobile Sticky Floating Quick Actions Bar (Visible only on mobile devices) */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden p-3 bg-white/92 backdrop-blur-xl border-t border-slate-200/80 shadow-[0_-4px_24px_rgba(11,31,58,0.12)] flex items-center gap-2.5">
+        <a
+          href="tel:+919820068374"
+          className="flex-1 inline-flex items-center justify-center gap-1.5 py-3 px-3 rounded-xl bg-slate-100/90 active:bg-slate-200 text-[#0B1F3A] font-bold text-xs border border-slate-200 transition-colors"
+        >
+          <PhoneCall className="w-3.5 h-3.5 text-[#1E6FD9]" />
+          <span>Call Support</span>
+        </a>
+        <button
+          onClick={() => handleOpenBooking()}
+          className="flex-1 inline-flex items-center justify-center gap-1.5 py-3 px-3 rounded-xl bg-[#F5A623] active:bg-[#E09415] text-[#0B1F3A] font-extrabold text-xs shadow-md shadow-[#F5A623]/25 transition-all cursor-pointer"
+        >
+          <span>Book a Car</span>
+          <ArrowRight className="w-3.5 h-3.5" />
+        </button>
+      </div>
 
       {/* Interactive Booking & KYC Modal */}
       <BookingModal

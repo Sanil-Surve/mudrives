@@ -6,12 +6,12 @@ import { Car, PhoneCall, Mail, MapPin, ShieldCheck } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-[#0B1F3A] text-white pt-16 pb-10 border-t border-white/10 relative overflow-hidden">
+    <footer className="bg-[#0B1F3A] text-white pt-16 pb-24 md:pb-10 border-t border-white/10 relative overflow-hidden">
       {/* Ambient background glow inside footer */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#1E6FD9]/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 pb-8 sm:pb-12 border-b border-white/10">
           {/* Brand Column (2 cols on lg) */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="flex items-center gap-2.5">
@@ -163,9 +163,9 @@ export function Footer() {
         </div>
 
         {/* Bottom Legal Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-xs text-slate-400 text-center sm:text-left">
           <p>© {new Date().getFullYear()} MU Drives Technologies Pvt. Ltd. All rights reserved.</p>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-x-5 gap-y-2 text-[11px] sm:text-xs">
             <span className="hover:text-white cursor-pointer transition-colors">
               Terms & Conditions
             </span>
